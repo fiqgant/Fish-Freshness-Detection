@@ -36,7 +36,7 @@ st.sidebar.title("Silahkan Login")
 # Authentication
 choice = st.sidebar.selectbox('Login', ['Admin','User'])
 
-path_ikan_jpg = r"\Img\ket_ikan.jpg"
+path_ikan_jpg = r"./Img/ket_ikan.jpg"
 
 # App 
 
