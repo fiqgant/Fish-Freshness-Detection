@@ -106,7 +106,7 @@ if choice == 'Admin':
         
             st.text('Unggah Gambar')
                 
-            model = pickle.load(open('150.p', 'rb'))
+            model = pickle.load(open('https://github.com/fiqgant/Fish-Freshness-Detection/blob/master/150.p', 'rb'))
 
             uploaded_file = st.file_uploader("Pilih gambar...", type='jpg')
             if uploaded_file is not None:
@@ -143,7 +143,7 @@ if choice == 'Admin':
         
             st.text('Unggah Gambar')
                 
-            model = pickle.load(open('150.p', 'rb'))
+            model = pickle.load(open('https://github.com/fiqgant/Fish-Freshness-Detection/blob/master/150.p', 'rb'))
 
             picture = st.camera_input("Take a picture")
             if picture is not None:
@@ -168,7 +168,7 @@ if choice == 'Admin':
    # WORKPLACE FEED PAGE
         elif bio == 'Tentang' :
             st.markdown("<h1 style='text-align: center; color: white;'>Kenali Ciri Ikan Segar menurut SNI</h1>", unsafe_allow_html=True)
-            imagefeed = Image.open('img/ket_ikan.jpg')
+            imagefeed = Image.open('https://github.com/fiqgant/Fish-Freshness-Detection/blob/master/Img/ket_ikan.jpg')
             st.image(imagefeed, caption='Ciri Ikan Segar menurut SNI')
             st.markdown('Ikan merupakan salah satu sumber protein yang popular dan terbukti baik bagi kesehatan tubuh. Selain memiliki kandungan protein yang tinggi dan rendah lemak, beberapa kandungan nutrisi daging ikan yang bermanfaat bagi tubuh, diantaranya adalah omega 3 yang bermanfaat bagi pertumbuhan otak, kalsium dan fosfor untuk pembentukan tulang dan gigi, serta vitamin d yang membuat tulang, gigi dan otot selalu dalam kondisi prima. Dibalik kandungan nutrisinya yang begitu banyak, ikan ternyata juga salah satu bahan makanan yang sangat mudah mengalami kerusakan. Ikan yang telah rusak tentunya akan mengalami penurunan nilai nutrisi yang dikandungnya, dan bahkan dapat menjadi berbahaya bagi konsumen apabila ikan sudah mengalami pembusukan. Maka dari itu, kita perlu mengetahui dan dapat membedakan ikan seperti apa yang termasuk ke dalam kategori baik untuk dikonsumsi. Pemerintah Indonesia sendiri telah menentukan standar ciri ikan segar yang dituangkan dalam SNI  2729:2013 tentang Ikan segar yang dikeluarkan oleh Badan Standarisasi Nasional (BSN)')
             st.markdown('1. Mata')
@@ -203,7 +203,7 @@ if choice == 'User':
             st.set_option('deprecation.showfileUploaderEncoding', False)
             st.text('Unggah Gambar')       
     
-        model = pickle.load(open('150.p', 'rb'))
+        model = pickle.load(open('https://github.com/fiqgant/Fish-Freshness-Detection/blob/master/150.p', 'rb'))
 
         uploaded_file = st.file_uploader("Pilih gambar...", type='jpg')
         if uploaded_file is not None:
@@ -227,7 +227,7 @@ if choice == 'User':
                     
     elif bio2 == 'U_Kamera':
                 
-        model = pickle.load(open('150.p', 'rb'))
+        model = pickle.load(open('https://github.com/fiqgant/Fish-Freshness-Detection/blob/master/150.p', 'rb'))
 
         picture = st.camera_input("Take a picture")
         if picture is not None:
@@ -252,7 +252,7 @@ if choice == 'User':
 # WORKPLACE FEED PAGE
     elif bio2 == 'U_Tentang':
             st.markdown("<h1 style='text-align: center; color: white;'>Kenali Ciri Ikan Segar menurut SNI</h1>", unsafe_allow_html=True)
-            imagefeed = Image.open('img/ket_ikan.jpg')
+            imagefeed = Image.open('https://github.com/fiqgant/Fish-Freshness-Detection/blob/master/Img/ket_ikan.jpg')
             st.image(imagefeed, caption='Ciri Ikan Segar menurut SNI')
             st.markdown('Ikan merupakan salah satu sumber protein yang popular dan terbukti baik bagi kesehatan tubuh. Selain memiliki kandungan protein yang tinggi dan rendah lemak, beberapa kandungan nutrisi daging ikan yang bermanfaat bagi tubuh, diantaranya adalah omega 3 yang bermanfaat bagi pertumbuhan otak, kalsium dan fosfor untuk pembentukan tulang dan gigi, serta vitamin d yang membuat tulang, gigi dan otot selalu dalam kondisi prima. Dibalik kandungan nutrisinya yang begitu banyak, ikan ternyata juga salah satu bahan makanan yang sangat mudah mengalami kerusakan. Ikan yang telah rusak tentunya akan mengalami penurunan nilai nutrisi yang dikandungnya, dan bahkan dapat menjadi berbahaya bagi konsumen apabila ikan sudah mengalami pembusukan. Maka dari itu, kita perlu mengetahui dan dapat membedakan ikan seperti apa yang termasuk ke dalam kategori baik untuk dikonsumsi. Pemerintah Indonesia sendiri telah menentukan standar ciri ikan segar yang dituangkan dalam SNI  2729:2013 tentang Ikan segar yang dikeluarkan oleh Badan Standarisasi Nasional (BSN)')
             st.markdown('1. Mata')
