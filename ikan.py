@@ -36,12 +36,13 @@ st.sidebar.title("Silahkan Login")
 # Authentication
 choice = st.sidebar.selectbox('Login', ['Admin','User'])
 
+#Path
 path_ikan_jpg = r"./Img/ket_ikan.jpg"
+path_model = r"./150.p"
 
 # App 
 
 # Login Block
-
 
 if choice == 'Admin':
     # Obtain User Input for email and password
@@ -106,7 +107,7 @@ if choice == 'Admin':
         
             st.text('Unggah Gambar')
                 
-            model = pickle.load(open('150.p', 'rb'))
+            model = pickle.load(open(path_model, 'rb'))
 
             uploaded_file = st.file_uploader("Pilih gambar...", type='jpg')
             if uploaded_file is not None:
@@ -143,7 +144,7 @@ if choice == 'Admin':
         
             st.text('Unggah Gambar')
                 
-            model = pickle.load(open('150.p', 'rb'))
+            model = pickle.load(open(path_model, 'rb'))
 
             picture = st.camera_input("Take a picture")
             if picture is not None:
@@ -203,7 +204,7 @@ if choice == 'User':
             st.set_option('deprecation.showfileUploaderEncoding', False)
             st.text('Unggah Gambar')       
     
-        model = pickle.load(open('150.p', 'rb'))
+        model = pickle.load(open(path_model, 'rb'))
 
         uploaded_file = st.file_uploader("Pilih gambar...", type='jpg')
         if uploaded_file is not None:
@@ -227,7 +228,7 @@ if choice == 'User':
                     
     elif bio2 == 'U_Kamera':
                 
-        model = pickle.load(open('150.p', 'rb'))
+        model = pickle.load(open(path_model, 'rb'))
 
         picture = st.camera_input("Take a picture")
         if picture is not None:
