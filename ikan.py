@@ -11,6 +11,9 @@ from skimage.io import imread
 from skimage.transform import resize
 from PIL import Image
 from datetime import datetime
+from streamlit_cropper import st_cropper
+from PIL import Image
+st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # Configuration Key
 firebaseConfig = {
@@ -112,13 +115,38 @@ if choice == 'Admin':
             uploaded_file = st.file_uploader("Pilih gambar...", type='jpg')
             if uploaded_file is not None:
                 img = Image.open(uploaded_file)
+                realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
+                box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
+                aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=["1:1", "16:9", "4:3", "2:3", "Free"])
+                aspect_dict = {
+                    "1:1": (1, 1),
+                    "16:9": (16, 9),
+                    "4:3": (4, 3),
+                    "2:3": (2, 3),
+                    "Free": None
+}
+                aspect_ratio = aspect_dict[aspect_choice]
+                
                 st.image(img,caption='Gambar yang di unggah')
+            if uploaded_file:
+                img = Image.open(uploaded_file)
+                if not realtime_update:
+                    st.write("Double click to save crop")
+                # Get a cropped image from the frontend
+                cropped_img = st_cropper(img, realtime_update=realtime_update, box_color=box_color,
+                                aspect_ratio=aspect_ratio)
+
+                # Manipulate cropped image at will
+                st.write("Preview")
+                _ = cropped_img.thumbnail((150,150))
+                st.image(cropped_img)
+                
                     
             if st.button('PREDIKSI'):
                 CATEGORIES = ['kurang segar','segar','tidak segar']
                 st.write('Hasil...')
                 flat_data=[]
-                img = np.array(img)
+                img = np.array(cropped_img)
                 img_resized = resize(img, (150,150,3))
                 flat_data.append(img_resized.flatten())
                 flat_data = np.array(flat_data)
@@ -149,13 +177,39 @@ if choice == 'Admin':
             picture = st.camera_input("Take a picture")
             if picture is not None:
                 img= Image.open(picture)
+                realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
+                box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
+                aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=["1:1", "16:9", "4:3", "2:3", "Free"])
+                aspect_dict = {
+                    "1:1": (1, 1),
+                    "16:9": (16, 9),
+                    "4:3": (4, 3),
+                    "2:3": (2, 3),
+                    "Free": None
+}
+                aspect_ratio = aspect_dict[aspect_choice]
+                
+                
                 st.image(img,caption='Gambar yang di ambil')
+            if picture:
+                img = Image.open(picture)
+                if not realtime_update:
+                    st.write("Double click to save crop")
+                # Get a cropped image from the frontend
+                cropped_img = st_cropper(img, realtime_update=realtime_update, box_color=box_color,
+                                aspect_ratio=aspect_ratio)
+
+                # Manipulate cropped image at will
+                st.write("Preview")
+                _ = cropped_img.thumbnail((150,150))
+                st.image(cropped_img)
+                
                     
             if st.button('PREDIKSI'):
                 CATEGORIES = ['kurang segar','segar','tidak segar']
                 st.write('Hasil...')
                 flat_data=[]
-                img = np.array(img)
+                img = np.array(cropped_img)
                 img_resized = resize(img, (150,150,3))
                 flat_data.append(img_resized.flatten())
                 flat_data = np.array(flat_data)
@@ -209,13 +263,37 @@ if choice == 'User':
         uploaded_file = st.file_uploader("Pilih gambar...", type='jpg')
         if uploaded_file is not None:
                 img = Image.open(uploaded_file)
+                realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
+                box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
+                aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=["1:1", "16:9", "4:3", "2:3", "Free"])
+                aspect_dict = {
+                    "1:1": (1, 1),
+                    "16:9": (16, 9),
+                    "4:3": (4, 3),
+                    "2:3": (2, 3),
+                    "Free": None
+}
+                aspect_ratio = aspect_dict[aspect_choice]
+                
                 st.image(img,caption='Gambar yang di unggah')
+        if uploaded_file:
+                img = Image.open(uploaded_file)
+                if not realtime_update:
+                    st.write("Double click to save crop")
+                # Get a cropped image from the frontend
+                cropped_img = st_cropper(img, realtime_update=realtime_update, box_color=box_color,
+                                aspect_ratio=aspect_ratio)
+
+                # Manipulate cropped image at will
+                st.write("Preview")
+                _ = cropped_img.thumbnail((150,150))
+                st.image(cropped_img)
                     
         if st.button('PREDIKSI'):
                 CATEGORIES = ['kurang segar','segar','tidak segar']
                 st.write('Hasil...')
                 flat_data=[]
-                img = np.array(img)
+                img = np.array(cropped_img)
                 img_resized = resize(img, (150,150,3))
                 flat_data.append(img_resized.flatten())
                 flat_data = np.array(flat_data)
@@ -233,13 +311,39 @@ if choice == 'User':
         picture = st.camera_input("Take a picture")
         if picture is not None:
             img= Image.open(picture)
+            realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
+            box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
+            aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=["1:1", "16:9", "4:3", "2:3", "Free"])
+            aspect_dict = {
+                "1:1": (1, 1),
+                "16:9": (16, 9),
+                "4:3": (4, 3),
+                "2:3": (2, 3),
+                "Free": None
+}
+            aspect_ratio = aspect_dict[aspect_choice]
+            
             st.image(img,caption='Gambar yang di ambil')
-                
+        if picture:
+            img = Image.open(picture)
+            if not realtime_update:
+                st.write("Double click to save crop")
+            # Get a cropped image from the frontend
+            cropped_img = st_cropper(img, realtime_update=realtime_update, box_color=box_color,
+                                aspect_ratio=aspect_ratio)
+
+            # Manipulate cropped image at will
+            st.write("Preview")
+            _ = cropped_img.thumbnail((150,150))
+            st.image(cropped_img)
+        
+        
+            
         if st.button('PREDIKSI'):
             CATEGORIES = ['kurang segar','segar','tidak segar']
             st.write('Hasil...')
             flat_data=[]
-            img = np.array(img)
+            img = np.array(cropped_img)
             img_resized = resize(img, (150,150,3))
             flat_data.append(img_resized.flatten())
             flat_data = np.array(flat_data)
