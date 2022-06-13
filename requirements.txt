@@ -7,3 +7,4 @@ streamlit==1.9.0
 streamlit_authenticator==0.1.4
 streamlit_option_menu==0.3.2
 scikit-learn
+streamlit_cropper==0.2.0
