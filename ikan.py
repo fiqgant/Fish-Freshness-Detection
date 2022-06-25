@@ -237,13 +237,6 @@ if choice == 'User':
 
 # Beranda PAGE
     if choose2 == 'Unggah':
-        nImage = ()
-        if nImage is not None:
-            val = db.child()
-        else:
-            st.set_option('deprecation.showfileUploaderEncoding', False)
-            st.text('Unggah Gambar')
-
         model = pickle.load(open(path_model, 'rb'))
 
         uploaded_file = st.file_uploader("Pilih gambar...", type='jpg')
