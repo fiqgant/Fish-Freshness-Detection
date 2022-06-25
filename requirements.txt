@@ -7,3 +7,4 @@ streamlit==1.10.0
 streamlit_aggrid==0.0.4
 streamlit_cropper==0.2.0
 streamlit_option_menu==0.3.2
+scikit-learn
